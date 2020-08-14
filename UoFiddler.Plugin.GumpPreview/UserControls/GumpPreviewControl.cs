@@ -154,7 +154,7 @@ namespace UoFiddler.Plugin.GumpPreview.UserControls
                         case GumpParser.TypeLayout.Text:
                             {
                                 string text = entry.Id < _currentDataEntries.Count ? _currentDataEntries[entry.Id] : "";
-                                graphPic.DrawString(text, new Font("Arial", 10), new SolidBrush(Hues.HueToColor(entry.Color)), new Point(entry.X, entry.Y));
+                                graphPic.DrawString(text, new Font("Arial", 8), new SolidBrush(Hues.HueToColor(entry.Color)), new Point(entry.X, entry.Y));
                                 break;
                             }
                         case GumpParser.TypeLayout.Button:

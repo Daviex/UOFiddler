@@ -42,10 +42,10 @@ namespace UoFiddler.Plugin.GumpPreview.UserControls
       this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
       this.GumpPictureBox = new System.Windows.Forms.PictureBox();
       this.groupBox1 = new System.Windows.Forms.GroupBox();
-      this.LayoutTextBox = new System.Windows.Forms.RichTextBox();
       this.groupBox2 = new System.Windows.Forms.GroupBox();
-      this.DataTextBox = new System.Windows.Forms.RichTextBox();
       this.GumpPreviewButton = new System.Windows.Forms.Button();
+      this.LayoutTextBox = new System.Windows.Forms.TextBox();
+      this.DataTextBox = new System.Windows.Forms.TextBox();
       this.tableLayoutPanel1.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.GumpPictureBox)).BeginInit();
       this.groupBox1.SuspendLayout();
@@ -81,7 +81,6 @@ namespace UoFiddler.Plugin.GumpPreview.UserControls
       this.GumpPictureBox.TabIndex = 0;
       this.GumpPictureBox.TabStop = false;
       this.GumpPictureBox.SizeChanged += new System.EventHandler(this.OnResizePreviewPic);
-      this.GumpPictureBox.Click += new System.EventHandler(this.OnClickPreview);
       // 
       // groupBox1
       // 
@@ -94,15 +93,6 @@ namespace UoFiddler.Plugin.GumpPreview.UserControls
       this.groupBox1.TabStop = false;
       this.groupBox1.Text = "Layout";
       // 
-      // LayoutTextBox
-      // 
-      this.LayoutTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.LayoutTextBox.Location = new System.Drawing.Point(3, 16);
-      this.LayoutTextBox.Name = "LayoutTextBox";
-      this.LayoutTextBox.Size = new System.Drawing.Size(231, 326);
-      this.LayoutTextBox.TabIndex = 0;
-      this.LayoutTextBox.Text = "";
-      // 
       // groupBox2
       // 
       this.groupBox2.Controls.Add(this.DataTextBox);
@@ -114,15 +104,6 @@ namespace UoFiddler.Plugin.GumpPreview.UserControls
       this.groupBox2.TabStop = false;
       this.groupBox2.Text = "Data";
       // 
-      // DataTextBox
-      // 
-      this.DataTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.DataTextBox.Location = new System.Drawing.Point(3, 16);
-      this.DataTextBox.Name = "DataTextBox";
-      this.DataTextBox.Size = new System.Drawing.Size(231, 326);
-      this.DataTextBox.TabIndex = 0;
-      this.DataTextBox.Text = "";
-      // 
       // GumpPreviewButton
       // 
       this.GumpPreviewButton.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -133,6 +114,24 @@ namespace UoFiddler.Plugin.GumpPreview.UserControls
       this.GumpPreviewButton.Text = "Preview Gump";
       this.GumpPreviewButton.UseVisualStyleBackColor = true;
       this.GumpPreviewButton.Click += new System.EventHandler(this.OnClickPreview);
+      // 
+      // LayoutTextBox
+      // 
+      this.LayoutTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.LayoutTextBox.Location = new System.Drawing.Point(3, 16);
+      this.LayoutTextBox.Multiline = true;
+      this.LayoutTextBox.Name = "LayoutTextBox";
+      this.LayoutTextBox.Size = new System.Drawing.Size(231, 326);
+      this.LayoutTextBox.TabIndex = 0;
+      // 
+      // DataTextBox
+      // 
+      this.DataTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.DataTextBox.Location = new System.Drawing.Point(3, 16);
+      this.DataTextBox.Multiline = true;
+      this.DataTextBox.Name = "DataTextBox";
+      this.DataTextBox.Size = new System.Drawing.Size(231, 326);
+      this.DataTextBox.TabIndex = 0;
       // 
       // GumpPreviewControl
       // 
@@ -146,7 +145,9 @@ namespace UoFiddler.Plugin.GumpPreview.UserControls
       this.tableLayoutPanel1.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.GumpPictureBox)).EndInit();
       this.groupBox1.ResumeLayout(false);
+      this.groupBox1.PerformLayout();
       this.groupBox2.ResumeLayout(false);
+      this.groupBox2.PerformLayout();
       this.ResumeLayout(false);
 
         }
@@ -158,7 +159,7 @@ namespace UoFiddler.Plugin.GumpPreview.UserControls
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button GumpPreviewButton;
-        private System.Windows.Forms.RichTextBox LayoutTextBox;
-        private System.Windows.Forms.RichTextBox DataTextBox;
+        private System.Windows.Forms.TextBox LayoutTextBox;
+        private System.Windows.Forms.TextBox DataTextBox;
     }
 }
