@@ -115,11 +115,38 @@ namespace UoFiddler.Plugin.GumpPreview.UserControls
                             }
                         case GumpParser.TypeLayout.ResizePic:
                             {
-                                Bitmap bmp = new Bitmap(Gumps.GetGump(entry.Id));
+                                List<Bitmap> gmp = new List<Bitmap>();
+                                for(int i = 0; i < 9; i++)
+                                {
+                                    gmp.Add(new Bitmap(Gumps.GetGump(entry.Id + i)));
+                                }
+                                int width = gmp[0].Width + gmp[1].Width + gmp[2].Width;
+                                int height = gmp[2].Height + gmp[3].Height + gmp[6].Height;
+
+                                Bitmap myTest = new Bitmap(width, height);
+                                using (Graphics g = Graphics.FromImage(myTest))
+                                {
+                                    g.Clear(Color.Transparent);
+                                    
+                                    int x = 0;
+                                    int y = 0;
+                                    for(int i = 0; i < 9; i++)
+                                    {
+                                        g.DrawImage(gmp[i], x, y, gmp[i].Width, gmp[i].Height);
+                                        x += gmp[i].Width;
+
+                                        if(i>0 && i%3==2)
+                                        {
+                                            x = 0;
+                                            y += gmp[i].Height;
+                                        }
+                                    }
+                                }
+
                                 Bitmap result = new Bitmap(entry.Width, entry.Height);
                                 using (Graphics g = Graphics.FromImage(result))
                                 {
-                                    g.DrawImage(bmp, 0, 0, entry.Width, entry.Height);
+                                    g.DrawImage(myTest, 0, 0, entry.Width, entry.Height);
                                 }
                                 graphPic.DrawImage(result, new Point(entry.X, entry.Y));
                                 break;
